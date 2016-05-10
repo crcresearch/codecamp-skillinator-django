@@ -10,12 +10,16 @@ from skillsmatrix.views import SearchDeveloperSkill
 class SkillsMatrix(TestCase):
     def setUp(self):
         # Create some users
-        dev1 = User.objects.create(username='dev1', first_name='Developer', last_name='One')
-        dev1.set_password('password')
+        user1 = User.objects.create(username='dev1', first_name='Developer', last_name='One')
+        user1.set_password('password')
+        user1.save()
+        dev1 = Developer.objects.create(user=user1, manager='Bill', title='Programmer')
         dev1.save()
 
-        dev2 = User.objects.create(username='dev2', first_name='Developer', last_name='Two')
-        dev2.set_password('password')
+        user2 = User.objects.create(username='dev2', first_name='Developer', last_name='Two')
+        user2.set_password('password')
+        user2.save()
+        dev2 = Developer.objects.create(user=user2, manager='Bill', title='Programmer')
         dev2.save()
 
         # Create a skill
@@ -55,22 +59,22 @@ class SkillsMatrix(TestCase):
         request = factory.get('/search_developer_skillset/', {'skill': 'Angular'})
         response = SearchDeveloperSkill(request)
         self.assertEquals(len(json.loads(response.content)), 1)
-        self.assertEquals(json.loads(response.content)[0]['developer__username'], 'dev1')
+        self.assertEquals(json.loads(response.content)[0]['developer__user__username'], 'dev1')
 
         # search for "C++" (should have 1 result)
         factory = RequestFactory()
         request = factory.get('/search_developer_skillset/', {'skill': 'C++'})
         response = SearchDeveloperSkill(request)
         self.assertEquals(len(json.loads(response.content)), 1)
-        self.assertEquals(json.loads(response.content)[0]['developer__username'], 'dev2')
+        self.assertEquals(json.loads(response.content)[0]['developer__user__username'], 'dev2')
 
         # search for "Photoshop" (should have 2 results)
         factory = RequestFactory()
         request = factory.get('/search_developer_skillset/', {'skill': 'Photoshop'})
         response = SearchDeveloperSkill(request)
         self.assertEquals(len(json.loads(response.content)), 2)
-        self.assertEquals(json.loads(response.content)[0]['developer__username'], 'dev1')
-        self.assertEquals(json.loads(response.content)[1]['developer__username'], 'dev2')
+        self.assertEquals(json.loads(response.content)[0]['developer__user__username'], 'dev1')
+        self.assertEquals(json.loads(response.content)[1]['developer__user__username'], 'dev2')
 
         # search for "Cooking" (should not exist)
         factory = RequestFactory()
@@ -115,11 +119,11 @@ class SkillsMatrix(TestCase):
         client.login(username='dev1', password='password')
 
         # call the home page URL
-        # response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'Firefox'})
-        # soup = BeautifulSoup(response.content, 'lxml')
-        # self.assertEquals(('dev1' in soup.find('h2', {'id': 'username'})), True)
+        response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'Firefox'})
+        soup = BeautifulSoup(response.content, 'lxml')
+        self.assertEquals(('dev1' in soup.find('h2', {'id': 'username'})), True)
 
         # check again, using IE
-        # response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'MSIE'})
-        # self.assertEquals('IE not supported', response.content)
+        response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'MSIE'})
+        self.assertEquals('IE not supported', response.content)
 
