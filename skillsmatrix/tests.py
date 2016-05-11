@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 # FUNCTIONS TO TEST
 from skillsmatrix.views import SearchDeveloperSkill
+from skillsmatrix.homework import *
 
 class SkillsMatrix(TestCase):
     def setUp(self):
@@ -127,3 +128,70 @@ class SkillsMatrix(TestCase):
         response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'MSIE'})
         self.assertEquals('IE not supported', response.content)
 
+class Homework(TestCase):
+    def setUp(self):
+        # Create some users
+        user1 = User.objects.create(username='neo', first_name='The', last_name='One')
+        user1.set_password('password')
+        user1.save()
+        dev1 = Developer.objects.create(user=user1, manager='Bill', title='Programmer')
+        dev1.save()
+
+        user2 = User.objects.create(username='David', first_name='The', last_name='To')
+        user2.set_password('password')
+        user2.save()
+        dev2 = Developer.objects.create(user=user2, manager='Bill', title='Programmer')
+        dev2.save()
+
+        self.user = user1
+
+    # def testProblemOneSuccessGet(self):
+    #     factory = RequestFactory()
+    #     request = factory.get('/problem_one/', {'name': 'One'})
+    #     response = ProblemOne(request)
+    #     self.assertEquals(response.status_code, 200)
+    #
+    # def testProblemOneSuccessPost(self):
+    #     factory = RequestFactory()
+    #     request = factory.post('/problem_one/', {'name': 'One'})
+    #     response = ProblemOne(request)
+    #     self.assertEquals(response.status_code, 200)
+    #
+    # def testProblemOneSuccessPostNoName(self):
+    #     factory = RequestFactory()
+    #     request = factory.post('/problem_one/')
+    #     response = ProblemOne(request)
+    #     self.assertEquals(response.status_code, 200)
+
+    def TestProblemTwoSuccessMSIE(self):
+        factory = RequestFactory()
+        request = factory.get('/problem_two/', **{'HTTP_USER_AGENT': 'MSIE'})
+        request.user = self.user
+        response = ProblemTwo(request)
+        self.assertEquals(response.status_code, 200)
+
+    def TestProblemTwoSuccessNotMSIE(self):
+        factory = RequestFactory()
+        request = factory.get('/problem_two/', **{'HTTP_USER_AGENT': 'Firefox'})
+        request.user = self.user
+        response = ProblemTwo(request)
+        self.assertEquals(response.status_code, 302)
+
+    # def TestProblemTwoSuccessNotNeo(self):
+    #     factory = RequestFactory()
+    #     request = factory.get('/problem_two/')
+    #     request.user = self.user
+    #     response = ProblemTwo(request)
+    #     self.assertEquals(response.status_code, 200)
+
+    # def TestProblemThreeSuccess(self):
+    #     # create a client for testing with
+    #     client = Client()
+    #
+    #     # log in as dev1
+    #     client.login(username='neo', password='password')
+    #
+    #     response = client.get('/problemthree/')
+    #     print response
+    #     soup = BeautifulSoup(response.content, 'lxml')
+    #     self.assertEquals(("The One" in soup.find("span", {"id": "name"}).string), True)
