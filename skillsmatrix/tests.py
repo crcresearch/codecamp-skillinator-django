@@ -137,61 +137,56 @@ class Homework(TestCase):
         dev1 = Developer.objects.create(user=user1, manager='Bill', title='Programmer')
         dev1.save()
 
+        self.user = user1
+
         user2 = User.objects.create(username='David', first_name='The', last_name='To')
         user2.set_password('password')
         user2.save()
         dev2 = Developer.objects.create(user=user2, manager='Bill', title='Programmer')
         dev2.save()
 
-        self.user = user1
-
-    # def testProblemOneSuccessGet(self):
-    #     factory = RequestFactory()
-    #     request = factory.get('/problem_one/', {'name': 'One'})
-    #     response = ProblemOne(request)
-    #     self.assertEquals(response.status_code, 200)
-    #
-    # def testProblemOneSuccessPost(self):
-    #     factory = RequestFactory()
-    #     request = factory.post('/problem_one/', {'name': 'One'})
-    #     response = ProblemOne(request)
-    #     self.assertEquals(response.status_code, 200)
-    #
-    # def testProblemOneSuccessPostNoName(self):
-    #     factory = RequestFactory()
-    #     request = factory.post('/problem_one/')
-    #     response = ProblemOne(request)
-    #     self.assertEquals(response.status_code, 200)
-
-    def TestProblemTwoSuccessMSIE(self):
+    #### PROBLEM ONE ####
+    def testProblemOneSuccessGet(self):
         factory = RequestFactory()
-        request = factory.get('/problem_two/', **{'HTTP_USER_AGENT': 'MSIE'})
-        request.user = self.user
-        response = ProblemTwo(request)
+        request = factory.get('/problem_one/', {'name': 'One'})
+        response = ProblemOne(request)
+        self.assertEquals(json.loads(response.content)[0]['first_name'], 'The')
+
+    def testProblemOneSuccessPost(self):
+        factory = RequestFactory()
+        request = factory.post('/problem_one/', {'name': 'One'})
+        response = ProblemOne(request)
+        self.assertEquals(json.loads(response.content)['name'], 'One')
+
+    def testProblemOneSuccessPostNoName(self):
+        factory = RequestFactory()
+        request = factory.post('/problem_one/')
+        response = ProblemOne(request)
         self.assertEquals(response.status_code, 200)
 
+    #### PROBLEM TWO ####
+    def TestProblemTwoSuccessMSIE(self):
+        client = Client()
+        client.login(username='neo', password='password')
+        response = client.get('/problemtwo/', **{'HTTP_USER_AGENT': 'MSIE'})
+        self.assertEquals(response.content, "Neo wouldn't use Internet Explorer silly...")
+
     def TestProblemTwoSuccessNotMSIE(self):
-        factory = RequestFactory()
-        request = factory.get('/problem_two/', **{'HTTP_USER_AGENT': 'Firefox'})
-        request.user = self.user
-        response = ProblemTwo(request)
+        client = Client()
+        client.login(username='neo', password='password')
+        response = client.get('/problemtwo/', **{'HTTP_USER_AGENT': 'Firefox'})
         self.assertEquals(response.status_code, 302)
 
-    # def TestProblemTwoSuccessNotNeo(self):
-    #     factory = RequestFactory()
-    #     request = factory.get('/problem_two/')
-    #     request.user = self.user
-    #     response = ProblemTwo(request)
-    #     self.assertEquals(response.status_code, 200)
+    def TestProblemTwoSuccessNotNeo(self):
+        client = Client()
+        client.login(username='David', password='password')
+        response = client.get('/problemtwo/')
+        self.assertEquals(response.content, 'Operator...')
 
-    # def TestProblemThreeSuccess(self):
-    #     # create a client for testing with
-    #     client = Client()
-    #
-    #     # log in as dev1
-    #     client.login(username='neo', password='password')
-    #
-    #     response = client.get('/problemthree/')
-    #     print response
-    #     soup = BeautifulSoup(response.content, 'lxml')
-    #     self.assertEquals(("The One" in soup.find("span", {"id": "name"}).string), True)
+    #### PROBLEM THREE ####
+    def TestProblemThreeSuccess(self):
+        client = Client()
+        client.login(username='neo', password='password')
+        response = client.get('/problemthree/')
+        soup = BeautifulSoup(response.content, 'lxml')
+        self.assertEquals(("The One" in soup.find("span", {"id": "name"}).string), True)
