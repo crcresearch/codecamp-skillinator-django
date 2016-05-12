@@ -16,7 +16,7 @@ admin.site.register(Developer)
 
 # DeveloperSkills admin configuration
 class DeveloperSkillAdmin(admin.ModelAdmin):
-    list_display = ('get_developer_username', 'skill', 'proficiency', 'years_of_experience')
+    list_display = ('developer', 'skill', 'proficiency', 'years_of_experience')
     list_filter = ('skill', 'proficiency', 'years_of_experience')
 
     def get_developer_username(self, obj):

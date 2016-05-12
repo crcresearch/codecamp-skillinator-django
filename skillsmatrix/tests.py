@@ -1,21 +1,27 @@
-from django.test import TestCase, RequestFactory, Client
-from django.contrib.auth.models import *
-from skillsmatrix.models import *
 import json
+
+from django.core.urlresolvers import reverse
+from django.test import TestCase, RequestFactory, Client
 from bs4 import BeautifulSoup
 
-# FUNCTIONS TO TEST
+from skillsmatrix.models import *
 from skillsmatrix.views import SearchDeveloperSkill
+from homework import ProblemOne
+
 
 class SkillsMatrix(TestCase):
     def setUp(self):
         # Create some users
-        dev1 = User.objects.create(username='dev1', first_name='Developer', last_name='One')
-        dev1.set_password('password')
+        user1 = User.objects.create(username='dev1', first_name='Developer', last_name='One')
+        user1.set_password('password')
+        user1.save()
+        dev1 = Developer.objects.create(user=user1, manager='Bill', title='Programmer')
         dev1.save()
 
-        dev2 = User.objects.create(username='dev2', first_name='Developer', last_name='Two')
-        dev2.set_password('password')
+        user2 = User.objects.create(username='dev2', first_name='Developer', last_name='Two')
+        user2.set_password('password')
+        user2.save()
+        dev2 = Developer.objects.create(user=user2, manager='Bill', title='Programmer')
         dev2.save()
 
         # Create a skill
@@ -55,22 +61,22 @@ class SkillsMatrix(TestCase):
         request = factory.get('/search_developer_skillset/', {'skill': 'Angular'})
         response = SearchDeveloperSkill(request)
         self.assertEquals(len(json.loads(response.content)), 1)
-        self.assertEquals(json.loads(response.content)[0]['developer__username'], 'dev1')
+        self.assertEquals(json.loads(response.content)[0]['developer__user__username'], 'dev1')
 
         # search for "C++" (should have 1 result)
         factory = RequestFactory()
         request = factory.get('/search_developer_skillset/', {'skill': 'C++'})
         response = SearchDeveloperSkill(request)
         self.assertEquals(len(json.loads(response.content)), 1)
-        self.assertEquals(json.loads(response.content)[0]['developer__username'], 'dev2')
+        self.assertEquals(json.loads(response.content)[0]['developer__user__username'], 'dev2')
 
         # search for "Photoshop" (should have 2 results)
         factory = RequestFactory()
         request = factory.get('/search_developer_skillset/', {'skill': 'Photoshop'})
         response = SearchDeveloperSkill(request)
         self.assertEquals(len(json.loads(response.content)), 2)
-        self.assertEquals(json.loads(response.content)[0]['developer__username'], 'dev1')
-        self.assertEquals(json.loads(response.content)[1]['developer__username'], 'dev2')
+        self.assertEquals(json.loads(response.content)[0]['developer__user__username'], 'dev1')
+        self.assertEquals(json.loads(response.content)[1]['developer__user__username'], 'dev2')
 
         # search for "Cooking" (should not exist)
         factory = RequestFactory()
@@ -115,11 +121,66 @@ class SkillsMatrix(TestCase):
         client.login(username='dev1', password='password')
 
         # call the home page URL
-        # response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'Firefox'})
-        # soup = BeautifulSoup(response.content, 'lxml')
-        # self.assertEquals(('dev1' in soup.find('h2', {'id': 'username'})), True)
+        response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'Firefox'})
+        soup = BeautifulSoup(response.content, 'html')
+        self.assertEquals(('dev1' in soup.find('h2', {'id': 'username'})), True)
 
         # check again, using IE
-        # response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'MSIE'})
-        # self.assertEquals('IE not supported', response.content)
+        response = client.get('/homepage/', **{'HTTP_USER_AGENT': 'MSIE'})
+        self.assertEquals('IE not supported', response.content)
 
+
+class Homework(TestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+        user1 = User.objects.create(username='neo', first_name='Thomas', last_name='Anderson')
+        user1.set_password('password')
+        user1.save()
+        dev1 = Developer.objects.create(user=user1, manager='Morpheus', title='Captain of the Nebuchadnezzar')
+        dev1.save()
+
+        self.factory = RequestFactory()
+        user2 = User.objects.create(username='trinity', first_name='Not', last_name='Known')
+        user2.set_password('password')
+        user2.save()
+        dev2 = Developer.objects.create(user=user2, manager='Morpheus', title='Captain of the Nebuchadnezzar')
+        dev2.save()
+
+        self.client = Client()
+        self.client.login(username='neo', password='password')
+
+    def test_problem_one_post_name(self):
+        request = self.factory.post('/test/', {'name': 'neo'})
+        response = ProblemOne(request)
+        self.assertEqual(json.loads(response.content)['name'], 'neo')
+
+    def test_problem_one_post_no_name(self):
+        request = self.factory.post('/test/', {})
+        response = ProblemOne(request)
+        self.assertEqual(json.loads(response.content)['name'], None)
+
+    def test_problem_one_get_success(self):
+        request = self.factory.get('/test/', {'name': 'Thomas'})
+        response = ProblemOne(request)
+        self.assertEqual(json.loads(response.content)[0]['first_name'], 'Thomas')
+
+    def test_problem_two_MSIE(self):
+        response = self.client.get(reverse('problem_two'), **{'HTTP_USER_AGENT': 'MSIE'})
+        self.assertEqual(response.content, "Neo wouldn't use Internet Explorer silly...")
+
+    def test_problem_two_not_MSIE(self):
+        response = self.client.get(reverse('problem_two'), **{'HTTP_USER_AGENT': 'Firefox'})
+        print "Response: ", response.content
+        print "Code? ", response.status_code
+        self.assertEqual(response.status_code, 302)
+
+    def test_problem_two_not_neo(self):
+        self.client.login(username='trinity', password='password')
+        response = self.client.get(reverse('problem_two'), **{'HTTP_USER_AGENT': 'Firefox'})
+        self.assertEqual(response.content, "Operator...")
+
+    def test_problem_three(self):
+        self.client.login(username='neo', password='password')
+        response = self.client.get(reverse('problem_three'))
+        soup = BeautifulSoup(response.content, 'html')
+        self.assertEqual(('Thomas Anderson' in str(soup.find('span', {'id': 'name'}))), True)
