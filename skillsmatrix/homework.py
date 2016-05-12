@@ -30,6 +30,7 @@ def ProblemOne(request):
 
     return HttpResponse(json.dumps(dev_list))
 
+
 @login_required
 def ProblemTwo(request):
     if request.user.username == 'neo' and 'MSIE' in request.META['HTTP_USER_AGENT']:

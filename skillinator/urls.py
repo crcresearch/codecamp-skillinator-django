@@ -15,17 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.conf.urls import include
-import skillsmatrix.views
-import skillsmatrix.homework
+
+from skillsmatrix.views import MySkills, HomePage
+from skillsmatrix.homework import ProblemTwo, ProblemThree
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # For tutorial
-    url(r'^myskills/', skillsmatrix.views.MySkills),
-    url(r'^homepage/', skillsmatrix.views.HomePage),
+    url(r'^myskills/', MySkills),
+    url(r'^homepage/', HomePage),
+
+    # URL for problem two
+    url(r'^problem-two/', ProblemTwo, name='problem_two'),
 
     # Give access to some of the views for the testing/code coverage homework
-    url(r'^problemthree/', skillsmatrix.homework.ProblemThree),
+    url(r'^problem-three/', ProblemThree, name='problem_three'),
 ]
