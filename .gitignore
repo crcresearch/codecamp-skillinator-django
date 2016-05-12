@@ -4,4 +4,4 @@
 *.DS_Store
 *.sqlite3
 .coverage
-cover/
+cover/*
