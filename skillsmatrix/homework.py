@@ -15,6 +15,7 @@ def ProblemOne(request):
 
     # otherwise, they're wanting some information back
     developers = Developer.objects.filter(Q(user__last_name__contains=request.GET['name']) | Q(user__first_name__contains=request.GET['name']))
+    print "developers: " + str(developers)
 
     # run through and create a custom dictionary
     dev_list = []

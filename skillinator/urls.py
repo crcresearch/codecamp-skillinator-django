@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^homepage/', skillsmatrix.views.HomePage),
 
     # Give access to some of the views for the testing/code coverage homework
+    url(r'^problemtwo/', skillsmatrix.homework.ProblemTwo),
     url(r'^problemthree/', skillsmatrix.homework.ProblemThree),
 ]
