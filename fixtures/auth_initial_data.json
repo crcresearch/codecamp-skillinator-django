@@ -1,0 +1,506 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add skill",
+    "content_type": 7,
+    "codename": "add_skill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change skill",
+    "content_type": 7,
+    "codename": "change_skill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete skill",
+    "content_type": 7,
+    "codename": "delete_skill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add developer",
+    "content_type": 8,
+    "codename": "add_developer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change developer",
+    "content_type": 8,
+    "codename": "change_developer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete developer",
+    "content_type": 8,
+    "codename": "delete_developer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add developer skill",
+    "content_type": 9,
+    "codename": "add_developerskill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change developer skill",
+    "content_type": 9,
+    "codename": "change_developerskill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete developer skill",
+    "content_type": 9,
+    "codename": "delete_developerskill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add extra credit",
+    "content_type": 10,
+    "codename": "add_extracredit"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change extra credit",
+    "content_type": 10,
+    "codename": "change_extracredit"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete extra credit",
+    "content_type": 10,
+    "codename": "delete_extracredit"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$pz6dtMyU2qec$Y01tWA4EiqLpLfsHwgaHRB8UxMoMmYoo99lFit9yT0I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dave",
+    "first_name": "David",
+    "last_name": "Pettifor",
+    "email": "dpettifo@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-19T15:42:02Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$xtryOtSln8DV$1AvbO9dpFt3Tk3U/lN+2Qa05jSnKp3ulnvRyXjz3LFo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "brett",
+    "first_name": "Brett",
+    "last_name": "Fox",
+    "email": "bfox6@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-19T15:42:59Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$HsVqVsKDIK2l$bis8bhcLMM+OVVS5tUd0wU43CGYK9Z9v1fKOEarFDv8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sam",
+    "first_name": "Sam",
+    "last_name": "Njoroge",
+    "email": "Samuel.W.Njoroge.5@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-19T15:43:39Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$r6F7RussUxqR$2kYIIRW+ZYi6DWRYELE3fvd6uK8ce04REa0+EaTltfc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rob_h",
+    "first_name": "Rob",
+    "last_name": "Hostetler",
+    "email": "Keith.R.Hostetler.18@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T13:59:20Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$K9f08A3rS7Oj$hbjEP0hGmwnXSMgQ5WXDy6StJk2cJoIfpInib56/6yo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rob_w",
+    "first_name": "Rob",
+    "last_name": "Wieck",
+    "email": "rwieck@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T13:59:53Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$QYto8Gls3nH1$WYMRdfLgafzTRDizfzXmV7ULmfznLuVECWCt6oHQi3g=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "caleb",
+    "first_name": "Caleb",
+    "last_name": "Reinking",
+    "email": "creinkin@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:00:21Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$VXYZNm9GvObM$A8ejcSUBu1Dlys5CyFZ9gn4Cg5SLuV6uFs8zZ9NjTRE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "beth",
+    "first_name": "Beth",
+    "last_name": "Caldwell",
+    "email": "bcaldwe1@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:01:05Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$0HDA5nIStzyP$EOAMEgpgqGBgqbAnuSwGuSuTlTfSewG1fHa0UJ0yylI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jared",
+    "first_name": "Jared",
+    "last_name": "Olson",
+    "email": "jolson6@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:01:34Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$yjuQ8rGhjiJA$2K+VUx/efqXyl0Kl2RqkYiaMOuBAJ3UlDtXp1arVS/k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "charles",
+    "first_name": "Charles",
+    "last_name": "Williams",
+    "email": "cwilli34@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:02:01Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$sWYLQPUSDx0S$y9eJqR4gzgX0mrbVO+8X3ktkTBoPGa+IwBtAeXUsQH4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "scott",
+    "first_name": "Scott",
+    "last_name": "Szakonyi",
+    "email": "sszakony@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:02:32Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$1PyA49zV2eE4$Boe/NgBm35Oyf3N7AeiBsIxuoc3oluiyoDHYyI9yWaE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "antelmo",
+    "first_name": "Antelmo",
+    "last_name": "Aguilar",
+    "email": "aaguilar@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:03:07Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$SsvVpK3zzHQ6$nsNx+G90ZDcTyVMfLdrK31fzCqJjkoKdxC0p07ytMCw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nic",
+    "first_name": "Nic",
+    "last_name": "Reed",
+    "email": "nreed4@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:06:17Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$A24GAZcqqxKv$0X8F8fF0ybDhCVKgj2mrorypTOOqGypBMdj0kA6vsZw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alex",
+    "first_name": "Alex",
+    "last_name": "Vyushkov",
+    "email": "avyushko@nd.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-05-22T14:06:46Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

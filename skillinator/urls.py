@@ -16,16 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
-import skillsmatrix.views
-import skillsmatrix.homework
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    # For tutorial
-    url(r'^myskills/', skillsmatrix.views.MySkills),
-    url(r'^homepage/', skillsmatrix.views.HomePage),
-
-    # Give access to some of the views for the testing/code coverage homework
-    url(r'^problemthree/', skillsmatrix.homework.ProblemThree),
+    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(
+        r'^logout/$',
+        auth_views.logout,
+        name='logout',
+        kwargs={'next_page': '/login'}
+    ),
+    url(r'^', include('skillsmatrix.urls')),
 ]

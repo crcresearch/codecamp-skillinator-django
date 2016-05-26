@@ -1,0 +1,74 @@
+{%  extends 'base.html' %}
+{% block content %}
+    <h2>Developer</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Developer Name</th>
+                <th>Title</th>
+                <th>Extra Credit Tokens</th>
+                <th>Manager</th>
+
+            </tr>
+        </thead>
+        <tr>
+            <td>{{ object }}</td>
+            <td>{{object.title}} <a class="glyphicon glyphicon-pencil" href="{% url "developer_update" object.id %}"></a></td>
+            <td>{{object.extra_credit_tokens}} {% if object.user.id == request.user.id %}<a class="glyphicon glyphicon-send" href="{% url "send_extra_credit" %}"></a>{% endif %}</td>
+            <td>{{object.manager }}</td>
+        </tr>
+    </table>
+
+    <h2>Developer Skills</h2>
+    {% if not skills %}
+    This developer has no skills
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Difficulty</th>
+                    <th>Family</th>
+                    <th>Proficiency</th>
+                    <th>Years of Experience</th>
+
+                </tr>
+            </thead>
+            {% for skill in skills %}
+                <tr>
+                    <td>{{skill.skill}}</td>
+                    <td>{{skill.skill.difficulty}}</td>
+                    <td>{{skill.skill.family}}</td>
+                    <td>{{ skill.proficiency }}</td>
+                    <td>{{ skill.years_of_experience }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+
+    <h2>Developer Extra Credits</h2>
+    {% if developer.extracredit_recipient.all|length_is:"0" %}
+    This developer has no extra credit
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>From</th>
+                    <th>Date</th>
+                    <th>Description</th>
+
+                </tr>
+            </thead>
+            {% for ec in developer.extracredit_recipient.all|dictsort:"date_credited" %}
+                <tr>
+                    <td>{{ ec.skill }}</td>
+                    <td>{{ ec.sender }}</td>
+                    <td>{{ ec.date_credited }}</td>
+                    <td>{{ ec.description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

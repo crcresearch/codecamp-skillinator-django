@@ -1,6 +1,14 @@
-<html>
+{%  extends 'base.html' %}
 
-<body>
-<h2 id="username">{{ request.user.username }}</h2>
-</body>
-</html>
+{% block content %}
+    <div class="well">
+        <h3>Welcome to the skillsmatrix application!</h3>
+        <br>
+        <h4>Since this app was created there have been:</h4>
+        <ul>
+            <li>{{ developer_count }} Developers enrolled</li>
+            <li>{{ developerskills_count }} Skills selected by developers</li>
+            <li>{{ extracredit_count }} Extra Credit tokens awarded</li>
+        </ul>
+    </div>
+{% endblock %}

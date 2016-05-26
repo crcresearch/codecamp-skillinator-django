@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    {% block style %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Skills Matrix</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url "my_developer_details" %}">Me</a></li>
+                <li><a href="{% url "developer_list" %}">Developer List</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url "my_developer_details" %}">{{ request.user }}</a></li>
+                <li><a href="{% url "logout" %}" class="glyphicon glyphicon-log-out"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="padding-top:70px">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.each($('#navbar').find('li'), function () {
+            $(this).toggleClass('active',
+                    $(this).find('a').attr('href') == window.location.pathname);
+        });
+        $('.navbar-brand').click(function (e) {
+            e.preventDefault();
+        });
+    });
+</script>
+{% block extra_js %}
+
+{% endblock %}
+</body>
+</html>

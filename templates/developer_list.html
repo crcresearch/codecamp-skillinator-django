@@ -1,0 +1,24 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+    <h2>Developers</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Developer Name</th>
+                <th>Title</th>
+                <th>Extra Credit Tokens</th>
+                <th>Manager</th>
+            </tr>
+        </thead>
+
+        {%for object in object_list %}
+            <tr>
+                <td><a href="/developer_detail/{{ object.id }}">{{object.user.first_name}} {{ object.user.last_name }}</a></td>
+                <td>{{object.title}}</td>
+                <td>{{object.extra_credit_tokens}}</td>
+                <td>{{object.manager }}</td>
+            </tr>
+      {% endfor %}
+    </table>
+{% endblock %}

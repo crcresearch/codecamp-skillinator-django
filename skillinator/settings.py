@@ -162,3 +162,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 #    'jquery',
 #    'underscore',
 #)
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'

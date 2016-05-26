@@ -1,0 +1,613 @@
+[
+{
+  "model": "skillsmatrix.skill",
+  "pk": 1,
+  "fields": {
+    "name": "AngularJS",
+    "difficulty": 3,
+    "family": "Frontend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 2,
+  "fields": {
+    "name": "PostgreSQL",
+    "difficulty": 2,
+    "family": "Database"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 3,
+  "fields": {
+    "name": "MySQL",
+    "difficulty": 2,
+    "family": "Database"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 4,
+  "fields": {
+    "name": "Oracle DB",
+    "difficulty": 3,
+    "family": "Database"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 5,
+  "fields": {
+    "name": "MongoDB",
+    "difficulty": 2,
+    "family": "Database"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 6,
+  "fields": {
+    "name": "Ember.js",
+    "difficulty": 2,
+    "family": "Frontend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 7,
+  "fields": {
+    "name": "Google Material",
+    "difficulty": 1,
+    "family": "Fron"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 8,
+  "fields": {
+    "name": "Bootstrap",
+    "difficulty": 1,
+    "family": "Frontend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 9,
+  "fields": {
+    "name": "jQuery",
+    "difficulty": 1,
+    "family": "Frontend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 10,
+  "fields": {
+    "name": "SemanticUI",
+    "difficulty": 2,
+    "family": "Frontend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 11,
+  "fields": {
+    "name": "Django",
+    "difficulty": 2,
+    "family": "Backend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 12,
+  "fields": {
+    "name": "Drupal",
+    "difficulty": 3,
+    "family": "Backend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 13,
+  "fields": {
+    "name": "Joomla",
+    "difficulty": 2,
+    "family": "Backend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 14,
+  "fields": {
+    "name": "Node.js",
+    "difficulty": 3,
+    "family": "Backend"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 15,
+  "fields": {
+    "name": "Varnish",
+    "difficulty": 3,
+    "family": "Cache"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 16,
+  "fields": {
+    "name": "Redis",
+    "difficulty": 3,
+    "family": "Cache"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 17,
+  "fields": {
+    "name": "Swift",
+    "difficulty": 3,
+    "family": "Mobile Development"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 18,
+  "fields": {
+    "name": "PhoneGap",
+    "difficulty": 2,
+    "family": "Mobile Development"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 19,
+  "fields": {
+    "name": "Go",
+    "difficulty": 2,
+    "family": "Language"
+  }
+},
+{
+  "model": "skillsmatrix.skill",
+  "pk": 20,
+  "fields": {
+    "name": "Python",
+    "difficulty": 2,
+    "family": "Language"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 1,
+  "fields": {
+    "user": 14,
+    "extra_credit_tokens": 5,
+    "manager": "Chris Sweet",
+    "title": "Lead Developer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 2,
+  "fields": {
+    "user": 12,
+    "extra_credit_tokens": 5,
+    "manager": "Caleb",
+    "title": "Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 3,
+  "fields": {
+    "user": 8,
+    "extra_credit_tokens": 5,
+    "manager": "Dave",
+    "title": "Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "extra_credit_tokens": 5,
+    "manager": "Dave",
+    "title": "Associate Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 5,
+  "fields": {
+    "user": 7,
+    "extra_credit_tokens": 5,
+    "manager": "Chris Sweet",
+    "title": "Lead Developer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 6,
+  "fields": {
+    "user": 10,
+    "extra_credit_tokens": 5,
+    "manager": "Alex",
+    "title": "Associate Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "extra_credit_tokens": 5,
+    "manager": "Chris Sweet",
+    "title": "Lead Developer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 8,
+  "fields": {
+    "user": 9,
+    "extra_credit_tokens": 5,
+    "manager": "Caleb",
+    "title": "Associate Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 9,
+  "fields": {
+    "user": 13,
+    "extra_credit_tokens": 5,
+    "manager": "Alex",
+    "title": "Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 10,
+  "fields": {
+    "user": 5,
+    "extra_credit_tokens": 5,
+    "manager": "Alex",
+    "title": "Associate Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 11,
+  "fields": {
+    "user": 6,
+    "extra_credit_tokens": 5,
+    "manager": "Caleb",
+    "title": "Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 12,
+  "fields": {
+    "user": 4,
+    "extra_credit_tokens": 5,
+    "manager": "Dave",
+    "title": "Senior Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developer",
+  "pk": 13,
+  "fields": {
+    "user": 11,
+    "extra_credit_tokens": 5,
+    "manager": "Caleb",
+    "title": "Research Programmer"
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 1,
+  "fields": {
+    "developer": 1,
+    "skill": 2,
+    "proficiency": "Medium",
+    "years_of_experience": 5
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 2,
+  "fields": {
+    "developer": 1,
+    "skill": 11,
+    "proficiency": "High",
+    "years_of_experience": 4
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 3,
+  "fields": {
+    "developer": 1,
+    "skill": 13,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 4,
+  "fields": {
+    "developer": 1,
+    "skill": 20,
+    "proficiency": "Medium",
+    "years_of_experience": 3
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 5,
+  "fields": {
+    "developer": 2,
+    "skill": 11,
+    "proficiency": "Medium",
+    "years_of_experience": 2
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 6,
+  "fields": {
+    "developer": 2,
+    "skill": 12,
+    "proficiency": "Medium",
+    "years_of_experience": 3
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 7,
+  "fields": {
+    "developer": 11,
+    "skill": 15,
+    "proficiency": "Low",
+    "years_of_experience": 0
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 8,
+  "fields": {
+    "developer": 11,
+    "skill": 16,
+    "proficiency": "Low",
+    "years_of_experience": 0
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 9,
+  "fields": {
+    "developer": 12,
+    "skill": 16,
+    "proficiency": "Low",
+    "years_of_experience": 0
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 10,
+  "fields": {
+    "developer": 7,
+    "skill": 20,
+    "proficiency": "Jedi",
+    "years_of_experience": 5
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 11,
+  "fields": {
+    "developer": 5,
+    "skill": 2,
+    "proficiency": "Medium",
+    "years_of_experience": 2
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 12,
+  "fields": {
+    "developer": 7,
+    "skill": 2,
+    "proficiency": "High",
+    "years_of_experience": 4
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 13,
+  "fields": {
+    "developer": 3,
+    "skill": 11,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 14,
+  "fields": {
+    "developer": 8,
+    "skill": 11,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 15,
+  "fields": {
+    "developer": 10,
+    "skill": 11,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 16,
+  "fields": {
+    "developer": 12,
+    "skill": 5,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 17,
+  "fields": {
+    "developer": 12,
+    "skill": 3,
+    "proficiency": "Medium",
+    "years_of_experience": 3
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 18,
+  "fields": {
+    "developer": 12,
+    "skill": 10,
+    "proficiency": "Low",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 19,
+  "fields": {
+    "developer": 12,
+    "skill": 7,
+    "proficiency": "Low",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 20,
+  "fields": {
+    "developer": 9,
+    "skill": 17,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 21,
+  "fields": {
+    "developer": 13,
+    "skill": 12,
+    "proficiency": "Medium",
+    "years_of_experience": 2
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 22,
+  "fields": {
+    "developer": 6,
+    "skill": 6,
+    "proficiency": "Low",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 23,
+  "fields": {
+    "developer": 6,
+    "skill": 1,
+    "proficiency": "Low",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 24,
+  "fields": {
+    "developer": 4,
+    "skill": 9,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 25,
+  "fields": {
+    "developer": 4,
+    "skill": 11,
+    "proficiency": "Medium",
+    "years_of_experience": 2
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 26,
+  "fields": {
+    "developer": 4,
+    "skill": 8,
+    "proficiency": "Low",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 27,
+  "fields": {
+    "developer": 3,
+    "skill": 1,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 28,
+  "fields": {
+    "developer": 10,
+    "skill": 9,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.developerskill",
+  "pk": 29,
+  "fields": {
+    "developer": 13,
+    "skill": 2,
+    "proficiency": "Medium",
+    "years_of_experience": 1
+  }
+},
+{
+  "model": "skillsmatrix.extracredit",
+  "pk": 1,
+  "fields": {
+    "recipient": 7,
+    "sender": 5,
+    "skill": 2,
+    "description": "Showed me how to set up a custom database index.",
+    "date_credited": "2016-05-24"
+  }
+}
+]
