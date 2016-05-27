@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-from django.conf import settings
 
 
 # Skill model
@@ -46,4 +45,5 @@ class ExtraCredit(models.Model):
     date_credited = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return '%s %s -> %s %s - %s' % (self.sender.user.first_name, self.recipient.user.last_name, self.recipient.user.first_name, self.recipient.user.last_name, self.skill.name)
+        return '%s %s -> %s %s - %s' % (self.sender.user.first_name, self.recipient.user.last_name,
+                                        self.recipient.user.first_name, self.recipient.user.last_name, self.skill.name)

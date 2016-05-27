@@ -14,7 +14,7 @@
         <tr>
             <td>{{ object }}</td>
             <td>{{object.title}} <a class="glyphicon glyphicon-pencil" href="{% url "developer_update" object.id %}"></a></td>
-            <td>{{object.extra_credit_tokens}} {% if object.user.id == request.user.id %}<a class="glyphicon glyphicon-send" href="{% url "send_extra_credit" %}"></a>{% endif %}</td>
+            <td>{{object.extra_credit_tokens}} {% if object.user.id == request.user.id and object.extra_credit_tokens > 0 %}<a class="glyphicon glyphicon-send" href="{% url "send_extra_credit" %}"></a>{% endif %}</td>
             <td>{{object.manager }}</td>
         </tr>
     </table>
@@ -36,9 +36,9 @@
             </thead>
             {% for skill in skills %}
                 <tr>
-                    <td>{{skill.skill}}</td>
-                    <td>{{skill.skill.difficulty}}</td>
-                    <td>{{skill.skill.family}}</td>
+                    <td>{{ skill.skill }}</td>
+                    <td>{{ skill.skill.difficulty }}</td>
+                    <td>{{ skill.skill.family }}</td>
                     <td>{{ skill.proficiency }}</td>
                     <td>{{ skill.years_of_experience }}</td>
                 </tr>
