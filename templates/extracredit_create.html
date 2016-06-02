@@ -4,7 +4,7 @@
 <form action="" method="post">{% csrf_token %}
     {% for field in form %}
     <div class="form-group">
-        {{ field.user }}
+        {{ field.errors }}
         {{ field.label_tag }} {{ field }}
         {% if field.help_text %}
             <p class="help">{{ field.help_text|safe }}</p>
