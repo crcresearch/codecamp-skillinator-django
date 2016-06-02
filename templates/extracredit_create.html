@@ -4,10 +4,10 @@
 <form action="" method="post">{% csrf_token %}
     {% for field in form %}
     <div class="form-group">
-        {{ field.errors }}
+        {{ field.user }}
         {{ field.label_tag }} {{ field }}
         {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
+            <p class="help">{{ field.help_text|safe }}</p>
         {% endif %}
     </div>
 {% endfor %}
